@@ -52,8 +52,11 @@ public class Main {
                 charset = encodingSelector.getEncoding(file);
                 s1 = fileReaderWriter.readFile(file,charset);
                 output = transformer.replaceChuck(s1);
-                File outputFile = new File(folder + "/"+ file.getName() + ".processed");
-                fileReaderWriter.writeFile(outputFile,output,outputCharset);
+                if(file != null) {
+                    File outputFile = new File(folder + "/" + file.getName() + ".processed");
+
+                    fileReaderWriter.writeFile(outputFile, output, outputCharset);
+                }
 
             } catch (Exception e) {
                 System.out.println("Exception: " + e);
